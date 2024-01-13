@@ -12,6 +12,9 @@ namespace NugetUtility
         public string LicenseType { get; set; }
         public string Projects { get; set; }
         public LibraryRepositoryInfo Repository { get; set; }
+
+        //https://www.nuget.org/packages/Grpc.AspNetCore/2.59.0
+        public string NugetUrl => $"https://www.nuget.org/packages/{PackageName}/{PackageVersion}";
     }
 
     public class LibraryRepositoryInfo

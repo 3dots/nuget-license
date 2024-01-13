@@ -1168,27 +1168,30 @@ namespace NugetUtility
             {
                 sb.Append(new string('#', 100));
                 sb.AppendLine();
-                sb.Append("Package:");
+                sb.Append("Package: ");
                 sb.Append(lib.PackageName);
                 sb.AppendLine();
-                sb.Append("Version:");
+                sb.Append("Version: ");
                 sb.Append(lib.PackageVersion);
                 sb.AppendLine();
-                sb.Append("project URL:");
-                sb.Append(lib.PackageUrl);
+                //sb.Append("Description: ");
+                //sb.Append(lib.Description);
+                //sb.AppendLine();
+                sb.Append("Nuget URL: ");
+                sb.Append(lib.NugetUrl);
                 sb.AppendLine();
-                sb.Append("Description:");
-                sb.Append(lib.Description);
+                sb.Append("License Type: ");
+                sb.Append(lib.LicenseType);
                 sb.AppendLine();
-                sb.Append("licenseUrl:");
+                sb.Append("License URL: ");
                 sb.Append(lib.LicenseUrl);
                 sb.AppendLine();
-                sb.Append("license Type:");
-                sb.Append(lib.LicenseType);
+                sb.Append("Project URL: ");
+                sb.Append(lib.PackageUrl);
                 sb.AppendLine();
                 if (_packageOptions.IncludeProjectFile)
                 {
-                    sb.Append("Project:");
+                    sb.Append("Project: ");
                     sb.Append(lib.Projects);
                     sb.AppendLine();
                 }
@@ -1204,9 +1207,10 @@ namespace NugetUtility
             if (!libraries.Any()) { return; }
 
             WriteOutput(Environment.NewLine + "References:", logLevel: LogLevel.Always);
-            var output = (libraries.ToStringTable(new[] { "Reference", "Version", "License Type", "License" }, true,
+            var output = (libraries.ToStringTable(new[] { "Package", "Version", "URL", "License Type", "License" }, true,
                                                             a => a.PackageName ?? "---",
                                                             a => a.PackageVersion ?? "---",
+                                                            a => a.NugetUrl ?? "---",
                                                             a => a.LicenseType ?? "---",
                                                             a => a.LicenseUrl ?? "---"), logLevel: LogLevel.Always);
 

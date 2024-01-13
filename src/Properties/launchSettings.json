@@ -1,11 +1,11 @@
 {
   "profiles": {
     "NugetUtility": {
-      "commandName": "Project"
+      "commandName": "Project",
+      "commandLineArgs": "-i C:\\repos\\2024\\GoalDiary\\GoalDiary.Web -o"
     },
     "WSL": {
       "commandName": "WSL2",
-      "environmentVariables": {},
       "distributionName": ""
     }
   }
